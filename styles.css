@@ -1,0 +1,1683 @@
+/* ================================================
+   TATÁÁH ARTS — ESTILOS PRINCIPAIS
+   Organização:
+   1. Variáveis (tokens de design)
+   2. Reset e base
+   3. Header e navegação
+   4. Seção Hero
+   5. Seção Processo
+   6. Produtos Digitais
+   7. Produtos Físicos + Carrossel
+   8. Outras seções (Sobre, Depoimentos, Contato)
+   9. Footer
+   10. Responsividade (media queries)
+   ================================================ */
+
+
+/* ================================================
+   1. VARIÁVEIS DE DESIGN (CSS CUSTOM PROPERTIES)
+   Centraliza todas as cores e fontes aqui.
+   Alterando um valor, muda em todo o site.
+   ================================================ */
+:root {
+  /* --- Modo claro (padrão) --- */
+  --color-bg: #FAF8FD;               /* Fundo geral da página */
+  --color-surface: #FFFFFF;          /* Fundo de cards e superfícies */
+  --color-text: #2D1F45;             /* Texto principal */
+  --color-text-secondary: #7B6A9A;   /* Texto secundário/suave */
+  --color-primary: #9B7DC8;          /* Roxo principal */
+  --color-primary-hover: #7F62B0;    /* Roxo escurecido (hover) */
+  --color-secondary: #BDDAF0;        /* Azul claro (fundo de seções) */
+  --color-accent: #F2BECE;           /* Rosa (destaques) */
+  --color-success: #B8E0C8;          /* Verde suave */
+  --color-border: #E2D8F5;           /* Bordas e separadores */
+
+  /* --- Fontes --- */
+  --font-display: 'Fredoka', sans-serif;   /* Títulos grandes */
+  --font-body: 'Quicksand', sans-serif;    /* Corpo de texto */
+
+  /* --- Toggle de tema --- */
+  --toggle-bg: #111729;              /* Fundo do toggle no modo claro */
+
+  /* --- Sombras --- */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+
+  /* --- Bordas arredondadas --- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 50px;
+
+  /* --- Transições padrão --- */
+  --transition: 0.3s ease;
+}
+
+/* ── DARK MODE via preferência do sistema ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0D0A1A;              /* Fundo mais profundo, quase preto azulado */
+    --color-surface: #1A1530;         /* Superfície: roxo escuro rico */
+    --color-text: #F0EBF8;            /* Texto: quase branco levemente roxo */
+    --color-text-secondary: #C4B4E0;  /* Secundário: lilás suave */
+    --color-primary: #B99EE0;         /* Roxo mais claro e vibrante no escuro */
+    --color-primary-hover: #D4BEF5;   /* Hover ainda mais claro */
+    --color-secondary: #1E2A4A;       /* Azul escuro profundo */
+    --color-accent: #E8A0C0;          /* Rosa com mais saturação */
+    --color-success: #2A5C40;         /* Verde escuro saturado */
+    --color-border: #2E2060;          /* Borda roxo escuro */
+    --toggle-bg: rgba(255,255,255,0.12);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.5);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+  }
+}
+
+/* ── DARK MODE via JS toggle ──
+   O JavaScript adiciona data-theme="dark" no <html>
+   Isso permite o usuário sobrescrever a preferência do sistema */
+[data-theme="dark"] {
+  --color-bg: #0D0A1A;
+  --color-surface: #1A1530;
+  --color-text: #F0EBF8;
+  --color-text-secondary: #C4B4E0;
+  --color-primary: #B99EE0;
+  --color-primary-hover: #D4BEF5;
+  --color-secondary: #1E2A4A;
+  --color-accent: #E8A0C0;
+  --color-success: #2A5C40;
+  --color-border: #2E2060;
+  --toggle-bg: rgba(255,255,255,0.12);
+}
+
+/* ── LIGHT MODE via JS toggle ──
+   Garante que, ao clicar de volta pro claro,
+   as cores retornem mesmo num sistema com preferência dark */
+[data-theme="light"] {
+  --color-bg: #FAF8FD;
+  --color-surface: #FFFFFF;
+  --color-text: #2D1F45;
+  --color-text-secondary: #7B6A9A;
+  --color-primary: #9B7DC8;
+  --color-primary-hover: #7F62B0;
+  --color-secondary: #BDDAF0;
+  --color-accent: #F2BECE;
+  --color-success: #B8E0C8;
+  --color-border: #E2D8F5;
+  --toggle-bg: #111729;
+}
+
+
+/* ================================================
+   2. RESET E ESTILOS BASE
+   Zeramos margens/paddings padrão do navegador
+   e definimos comportamentos globais
+   ================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* largura inclui padding e borda */
+}
+
+html {
+  scroll-behavior: smooth;   /* Rolagem suave ao clicar em âncoras */
+  overflow-x: hidden;        /* Sem barra de rolagem horizontal */
+  /* Tipografia fluida: escala com viewport */
+  font-size: clamp(14px, 1.5vw, 18px);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+/* Links: remove sublinhado padrão */
+a {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+}
+
+/* Imagens responsivas por padrão */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Botão base — usado em todo o site */
+.btn {
+  padding: 10px 22px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background-color var(--transition), color var(--transition), transform 0.15s;
+  white-space: nowrap; /* não quebra o texto */
+}
+
+.btn:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-accent);
+  transform: translateY(-2px); /* pequena elevação no hover */
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Títulos de seção (h2 genérico) */
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 2.4rem); /* escala com a viewport */
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+
+/* ================================================
+   3. HEADER (CABEÇALHO)
+   Fixo no topo, fica acima de todo o conteúdo
+   ================================================ */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* logo | nav | botões */
+  align-items: center;
+  padding: 10px 30px;
+  background-color: var(--color-secondary);
+  box-shadow: var(--shadow-sm);
+  position: fixed;              /* Gruda no topo ao rolar */
+  top: 0;
+  left: 0;
+  z-index: 9999;                /* Fica na frente de tudo */
+  transition: background-color var(--transition);
+  gap: 16px;
+}
+
+/* Logo pequena no header */
+.logo-header {
+  width: clamp(36px, 8vw, 44px);
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0; /* não encolhe */
+}
+
+/* NAVEGAÇÃO — links do menu */
+nav#mainNav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap; /* quebra linha se não couber */
+}
+
+nav#mainNav a {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition), color var(--transition), font-size var(--transition);
+}
+
+nav#mainNav a:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* Área do header com os botões */
+.btn-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* ─── BOTÃO HAMBURGUER (mobile) ───
+   Fica oculto no desktop, aparece no mobile */
+.menu-toggle {
+  display: none; /* escondido por padrão */
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Cada traço do hamburguer */
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Animação do X quando o menu está aberto */
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ─── TOGGLE DE TEMA CLARO/ESCURO ─── */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* A "pílula" do toggle */
+.toggle-track {
+  width: 64px;
+  height: 32px;
+  background-color: var(--toggle-bg);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  transition: background-color var(--transition);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* A bolinha que desliza */
+.toggle-slider {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  left: 4px;
+  transform: translateX(0); /* posição padrão: modo CLARO (esquerda) */
+}
+
+/* Ícone (sol ou lua) */
+.toggle-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+}
+
+.toggle-icon svg {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Modo claro: sol apagado, lua visível */
+.theme-toggle .sun svg  { color: rgba(255,255,255,0.95); opacity: 0.3; }
+.theme-toggle .moon svg { color: rgba(255,255,255,0.95); opacity: 1;   }
+
+/* Modo escuro: slider vai para a direita, sol acende, lua apaga */
+[data-theme="dark"] .toggle-slider          { transform: translateX(32px); }
+[data-theme="dark"] .toggle-track           { background-color: rgba(255,255,255,0.12); }
+[data-theme="dark"] .theme-toggle .sun svg  { opacity: 1; }
+[data-theme="dark"] .theme-toggle .moon svg { opacity: 0.25; }
+
+
+/* ================================================
+   4. HERO — BANNER PRINCIPAL
+   Ocupa 100vh (toda a altura da tela)
+   ================================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(80px, 12vw, 120px) clamp(16px, 5vw, 40px);
+  width: 100%;
+  min-height: clamp(500px, 100vh, 900px);
+  background-image: linear-gradient(to bottom, var(--color-secondary), var(--color-surface));
+  gap: clamp(20px, 5vw, 60px);
+  flex-wrap: wrap;
+}
+
+aside.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: clamp(0px, 5vw, 70px);
+  justify-content: center;
+  gap: clamp(3px, 2vw, 10px);
+  flex: 1;
+  min-width: 280px;
+}
+
+aside.left, aside.right {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  aside.left, aside.right {
+    width: 50%;
+  }
+}
+
+/* Chip "Feito a mão com amor!" */
+.hero-detail {
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  background-color: var(--color-primary-hover);
+  padding: clamp(6px, 1vw, 12px);
+  border-radius: 40px;
+  font-family: var(--font-body);
+  width: fit-content;
+}
+
+/* H1 principal do hero */
+h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 0.9;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  width: 100%;
+  text-align: left;
+  text-shadow: 2px 2px 4px #69555b;
+  max-width: 600px;
+}
+
+h1 span { color: var(--color-primary); }
+
+.hero-images {
+  position: relative;
+  width: clamp(180px, 40vw, 450px);
+  height: clamp(180px, 40vw, 450px);
+  flex-shrink: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  background-color: var(--color-success);
+  padding: 2px 10px;
+  border-radius: 30px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+}
+
+/* Botão do hero com gradiente roxo */
+.hero-btn {
+  margin-top: clamp(16px, 3vw, 24px);
+  background-image: linear-gradient(to right bottom, #9b239b, #8d1e9c, #7d1b9c, #6c199d, #58189d);
+}
+
+.hero-btn:hover {
+  background-image: linear-gradient(to right bottom, #58189d, #6c199d, #7d1b9c, #8d1e9c, #9b239b);
+}
+
+aside.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -15;
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.hero-image {
+  width: clamp(180px, 30vw, 400px);
+  height: auto;
+  margin-top: 20px;
+  z-index: 0;
+  position: relative;
+  top: clamp(20px, 5vw, 120px);
+  right: clamp(-10px, 3vw, 50px);
+  border-radius: 50px;
+  transform: rotate(5deg);
+}
+
+.hero-image.logo {
+  width: clamp(80px, 15vw, 200px);
+  margin-top: 40px;
+  z-index: 5;
+  position: relative;
+  top: clamp(-30px, -3vw, -50px);
+  right: clamp(40px, 8vw, 250px);
+  border-radius: 50px;
+  border: 2px solid var(--color-surface);
+  transform: rotate(-5deg);
+}
+
+.borboleta {
+  width: clamp(45px, 10vw, 100px);
+  height: auto;
+  z-index: 10;
+  position: relative;
+  top: clamp(-60px, -8vw, -270px);
+  right: clamp(100px, 15vw, 420px);
+}
+
+
+/* ================================================
+   5. PROCESSO
+   ================================================ */
+.process {
+  width: 100%;
+  padding: clamp(40px, 10vw, 100px) clamp(20px, 5vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(30px, 5vw, 50px);
+  background-image: linear-gradient(to top, var(--color-success), var(--color-surface));
+}
+
+.process-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 8vw, 60px);
+  flex-wrap: wrap;
+}
+
+/* Galeria de fotos empilhadas com rotação */
+.process-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(16px, 4vw, 30px);
+  flex-shrink: 0;
+}
+
+.process-images img {
+  width: clamp(100px, 20vw, 180px);
+  border: 4px solid var(--color-surface);
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Rotações diferentes para cada foto */
+.n1 { --rotate: 10deg;  transform: rotate(var(--rotate)); margin-left: -15px; z-index: 1; }
+.n2 { --rotate: -10deg; transform: rotate(var(--rotate)); margin-left: -30px; z-index: 2; }
+.n3 { --rotate: 10deg;  transform: rotate(var(--rotate)); margin-left: -30px; z-index: 3; }
+
+/* Delay na animação para não ficarem sincronizadas */
+.process-images img:nth-child(2) { animation-delay: 1s; }
+.process-images img:nth-child(3) { animation-delay: 2s; }
+
+.process-images img:hover {
+  transform: scale(1.06) rotate(0deg);
+  z-index: 10;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Animação de flutuação suave */
+@keyframes float {
+  0%, 100% { transform: translateY(0)    rotate(var(--rotate)); }
+  50%       { transform: translateY(-10px) rotate(var(--rotate)); }
+}
+
+/* Caixa de passos do processo (vidro fosco) */
+.process-text {
+  background: var(--color-border);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  padding: 40px 48px;
+  max-width: 420px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+li {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+}
+
+
+/* ================================================
+   6. PRODUTOS DIGITAIS
+   ================================================ */
+.digital-products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 4vw, 30px);
+  padding: clamp(40px, 10vw, 80px) clamp(20px, 5vw, 40px);
+  background-image: linear-gradient(to bottom, var(--color-success), var(--color-secondary));
+}
+
+/* Título com fundo primário */
+.title-digital-products {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  padding: 6px 24px;
+  border-radius: var(--radius-pill);
+}
+
+/* Grade de cards de produtos digitais */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* mesma altura */
+  gap: 28px;
+  flex-wrap: wrap; /* responsivo */
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Card de produto digital */
+.product-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: clamp(16px, 4vw, 24px);
+  width: clamp(240px, 90vw, 380px);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 2vw, 12px);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card .title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.product-card .description {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  flex: 1; /* empurra o botão para baixo */
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  height: 160px;
+}
+
+
+/* ================================================
+   7. PRODUTOS FÍSICOS — GRID + MINI-GALERIA
+   ================================================ */
+.physical-products {
+  padding: clamp(40px, 10vw, 80px) clamp(20px, 5vw, 40px);
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ── BARRA DE ÂNCORAS ──
+   Fica sticky logo abaixo do header ao rolar dentro da seção */
+.category-anchors {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: sticky;
+  top: 64px;          /* altura do header fixo */
+  z-index: 100;
+  background-color: var(--color-bg);
+  padding: 12px 20px;
+  width: 100%;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 50px;
+}
+
+/* Cada link âncora */
+.anchor-btn {
+  padding: 8px 16px;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: all var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.anchor-btn:hover,
+.anchor-btn.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(155,125,200,0.35);
+}
+
+/* ── BLOCO DE CADA CATEGORIA ── */
+.cat-block {
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 70px;
+  scroll-margin-top: 130px; /* compensa header + barra de âncoras */
+}
+
+/* Título da categoria */
+.cat-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* ── GRADE DE CARDS ──
+   auto-fill: cria quantas colunas couberem */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+/* ── CARD DE PRODUTO (com mini-galeria interna) ── */
+.pcard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.pcard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── GALERIA INTERNA DO CARD ──
+   Position relative para as setas ficarem em cima */
+.pcard-gallery {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Todas as "fotos" empilhadas — só a .active aparece */
+.pcard-slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Cada slide: ocupa 100% e fica escondido por padrão */
+.pcard-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Slide ativo: visível */
+.pcard-slide.active {
+  opacity: 1;
+}
+
+/* ── SETAS DA MINI-GALERIA ──
+   Ficam sobrepostas na galeria, invisíveis por padrão */
+.pgal-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.35);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;                         /* escondida por padrão */
+  transition: opacity var(--transition), background-color var(--transition);
+  z-index: 2;
+}
+
+.pgal-btn.prev { left: 6px; }
+.pgal-btn.next { right: 6px; }
+
+/* Setas aparecem ao passar o mouse no card */
+.pcard:hover .pgal-btn {
+  opacity: 1;
+}
+
+/* Seta desabilitada (primeira/última foto) */
+.pgal-btn:disabled {
+  opacity: 0.2 !important;
+  cursor: default;
+}
+
+.pgal-btn:hover:not(:disabled) {
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* ── BOLINHAS DA MINI-GALERIA ──
+   Ficam na parte inferior da imagem */
+.pgal-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+
+/* Cada bolinha */
+.pgal-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.pgal-dot.active {
+  background-color: #fff;
+  transform: scale(1.3);
+}
+
+/* Se o card tem só 1 foto, esconde as bolinhas e setas */
+.pcard-gallery[data-single="true"] .pgal-btn,
+.pcard-gallery[data-single="true"] .pgal-dots {
+  display: none;
+}
+
+/* ── INFORMAÇÕES DO CARD ── */
+.pcard-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.pcard-info h4 {
+  font-size: 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.pcard-info p {
+  font-size: 0.83rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* Preço em destaque */
+.price-tag {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-text);
+  font-family: var(--font-display);
+}
+
+/* Botão menor dentro do card */
+.card-btn {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+
+/* ================================================
+   8. OUTRAS SEÇÕES
+   ================================================ */
+
+/* SOBRE NÓS */
+.about {
+  padding: clamp(40px, 10vw, 80px) clamp(20px, 5vw, 40px);
+  text-align: center;
+  background-color: var(--color-surface);
+}
+
+.about p {
+  max-width: 900px;
+  margin: 16px auto 0;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  margin-top: -10px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(20px, 5vw, 40px);
+  padding: clamp(20px, 5vw, 40px);
+  background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+  border-radius: clamp(12px, 3vw, 20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  position: relative;
+}
+
+.about-content::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-success), var(--color-accent));
+  border-radius: 25px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.mascotinha {
+  width: clamp(160px, 30vw, 250px);
+  height: auto;
+  border: clamp(4px, 1vw, 8px) solid var(--color-primary);
+  box-shadow: 0 0 0 clamp(5px, 2vw, 10px) var(--color-accent), 0 0 0 clamp(10px, 3vw, 20px) var(--color-success);
+  position: relative;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.mascotinha:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 16px);
+  color: var(--color-text);
+  flex: 1;
+}
+
+.about-text h3 {
+  color: var(--color-primary);
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+}
+
+.about-text p {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  line-height: 1.6;
+}
+
+/* DEPOIMENTOS */
+.testimonials {
+  padding: clamp(40px, 10vw, 80px) clamp(20px, 5vw, 40px);
+  text-align: center;
+  background-color: var(--color-bg);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+  padding: clamp(24px, 5vw, 50px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.depo {
+  border-radius: clamp(10px, 2vw, 15px);
+  width: 100%;
+  max-width: clamp(200px, 80vw, 300px);
+  height: auto;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.depo:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+/* CONTATO */
+.contact {
+  padding: clamp(40px, 10vw, 80px) clamp(20px, 5vw, 40px);
+  text-align: center;
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(15px, 3vw, 20px);
+}
+
+.contact p {
+  color: var(--color-text-secondary);
+}
+
+/* Container para botões em linha */
+.container-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Botão de ícone com estilo atraente */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 1.5rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--color-primary-hover);
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 8px 24px rgba(155, 125, 200, 0.4);
+  color: #fff;
+}
+
+/* ================================================
+   9. FOOTER — Personalizado e atraente
+   ================================================ */
+footer.footer {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoração de fundo sutil */
+footer.footer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 500px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Container principal com grid responsivo */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(16px, 3vw, 30px);
+  margin: 0 auto clamp(16px, 3vw, 24px);  
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── SEÇÃO BRAND ── */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-brand img {
+  width: clamp(50px, 12vw, 80px);
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.footer-brand img:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.footer-brand h3 {
+  color: #ffffff;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── SEÇÃO LINKS ── */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 16px);
+}
+
+.footer-links h4 {
+  color: #ffffff;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+  padding: 4px 0;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgba(242, 190, 206, 0.8);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* ── SEÇÃO CONTATO ── */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 16px);
+}
+
+.footer-contact h4 {
+  color: #ffffff;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-contact p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.footer-contact p:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 8px;
+  transform: translateX(2px);
+}
+
+.footer-contact i {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  min-width: 20px;
+}
+
+/* ── FOOTER BOTTOM ── */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: clamp(12px, 2vw, 20px);
+  gap: 6px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.footer-bottom p:last-child {
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.footer-brand p,
+.footer-contact p,
+.footer-links a {
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+}
+/* Animação sutil ao carregar */
+@keyframes footerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer.footer {
+  animation: footerFadeIn 0.6s ease-out;
+}
+
+/* ================================================
+   10. RESPONSIVIDADE — MEDIA QUERIES
+   Breakpoints: 1440px | 1024px | 768px | 640px | 480px
+   ================================================ */
+
+/* ── GRANDE (1920px+) ── */
+@media (min-width: 1920px) {
+  .container { max-width: 1400px; margin: 0 auto; }
+  header { padding: 12px 60px; }
+  footer.footer { padding: 80px 60px; }
+  .footer-container { gap: 60px; }
+}
+
+/* ── DESKTOP GRANDE (1440px) ── */
+@media (max-width: 1440px) {
+  header { padding: 10px 40px; }
+  .hero { padding: 100px 40px; }
+  aside.left { padding-left: 40px; }
+  aside .left, aside .right { width: 50%; }
+  footer.footer { padding: 60px 40px; }
+}
+
+/* ── TABLET LANDSCAPE (1024px) ── */
+@media (max-width: 1024px) {
+  header { 
+    padding: 10px 20px;
+    gap: 12px;
+  }
+
+  nav#mainNav a {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  /* Hero: melhor distribuição */
+  .hero {
+    flex-direction: column;
+    padding: clamp(80px, 12vw, 120px) 20px;
+    min-height: auto;
+    height: auto;
+    gap: 20px;
+  }
+
+  aside .left, aside .right { width: 100%; }
+  aside.left { 
+    align-items: center; 
+    padding-left: 0;
+    text-align: center;
+  }
+
+  h1 { width: 100%; text-align: center; }
+
+  .hero-detail { align-self: center; }
+
+  aside.right { min-height: 240px; }
+  .hero-images { width: 280px; height: 280px; }
+  .hero-image { width: 280px; top: 60px; right: 0; }
+  .hero-image.logo { width: 140px; right: 80px; top: -30px; }
+  .borboleta { width: 70px; top: -60px; right: 120px; }
+
+  /* Process */
+  .process-content { 
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  .process-text { 
+    padding: clamp(20px, 5vw, 40px);
+    max-width: 100%;
+  }
+  .process-images { padding: 20px; }
+  .process-images img { width: 150px; }
+
+  /* Produtos digitais */
+  .container { flex-direction: column; align-items: center; }
+  .product-card { width: 100%; max-width: 380px; }
+
+  /* Produtos físicos */
+  .products-grid { 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .category-anchors { gap: 8px; padding: 12px 16px; }
+}
+
+/* ── TABLET PORTRAIT (768px) ── */
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  
+  /* Hamburguer: mostrar */
+  .menu-toggle { display: flex; }
+
+  nav#mainNav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-secondary);
+    flex-direction: column;
+    padding: 12px 16px;
+    gap: 6px;
+    box-shadow: var(--shadow-md);
+    border-top: 1px solid var(--color-border);
+    z-index: 999;
+  }
+
+  nav#mainNav.open { display: flex; }
+
+  nav#mainNav a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    width: 100%;
+    text-align: left;
+  }
+
+  header { position: relative; }
+
+  /* Hero ajustes */
+  .hero {
+    min-height: auto;
+    padding: 80px 16px 50px;
+  }
+
+  h1 { font-size: clamp(1.8rem, 5vw, 3rem); }
+  
+  .hero-images { width: 240px; height: 240px; }
+  .hero-image { width: 240px; }
+  .hero-image.logo { width: 120px; right: 60px; }
+  .borboleta { width: 60px; }
+
+  /* About: ajusta layout */
+  .about-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .mascotinha { width: 200px; }
+
+  .about-text h3 { font-size: 1rem; }
+  .about p { font-size: 0.9rem; }
+
+  /* Produtos */
+  .products-grid { 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .pcard-gallery { height: 160px; }
+  .pcard-info h4 { font-size: 0.95rem; }
+  .pcard-info p { font-size: 0.8rem; }
+
+  /* Category anchors: scroll */
+  .category-anchors {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .category-anchors::-webkit-scrollbar { display: none; }
+  .anchor-btn { 
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    white-space: nowrap;
+  }
+
+  /* Depoimentos grid */
+  .container {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+  .depo { width: 100%; max-width: 250px; }
+
+  /* Contato: ícones responsivos */
+  .container-btn { gap: 12px; }
+  .whatsapp-btn { width: 48px; height: 48px; font-size: 1.2rem; }
+
+  /* Footer: responsivo em tablet */
+  .footer-container { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .footer-brand { grid-column: 1 / -1; align-items: center; text-align: center; }
+}
+
+/* ── MOBILE LANDSCAPE (640px) ── */
+@media (max-width: 640px) {
+  header { 
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .logo-header { width: 36px; }
+
+  .btn-header { gap: 8px; }
+  .btn { 
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 70px 12px 40px;
+    gap: 20px;
+  }
+
+  h1 { font-size: clamp(1.6rem, 4.5vw, 2.5rem); }
+  h2 { font-size: clamp(1.2rem, 3.5vw, 1.8rem); }
+
+  .hero-images { width: 200px; height: 200px; }
+  .hero-image { width: 200px; }
+  .hero-image.logo { width: 100px; right: 40px; }
+  .borboleta { width: 50px; }
+
+  /* Process: fotos menores */
+  .process-images img { width: 120px; }
+  .process-text { 
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+
+  ul { gap: 10px; }
+  li { font-size: 0.9rem; }
+
+  /* Cards de produto */
+  .product-card {
+    width: 100%;
+    padding: clamp(12px, 3vw, 16px);
+  }
+  .product-card img { height: 140px; }
+
+  /* Grid: uma coluna */
+  .products-grid { 
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cat-title { font-size: 1.3rem; }
+  .pcard-gallery { height: 140px; }
+  .pcard-info h4 { font-size: 0.9rem; }
+  .pcard-info p { font-size: 0.75rem; }
+
+  .category-anchors { 
+    top: 56px;
+    padding: 8px;
+    gap: 4px;
+  }
+
+  /* Ícones: menor */
+  .whatsapp-btn { 
+    width: 44px; 
+    height: 44px;
+    font-size: 1rem;
+  }
+}
+
+/* ── MOBILE PEQUENO (480px) ── */
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+
+  header { 
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .logo-header { width: 32px; }
+
+  .btn-header { gap: 6px; }
+  .btn { 
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  h1 { font-size: clamp(1.4rem, 3.5vw, 2rem); }
+  h2 { font-size: clamp(1.1rem, 3vw, 1.5rem); }
+
+  .hero {
+    padding: 60px 12px 40px;
+    gap: 16px;
+  }
+
+  .hero-detail { font-size: 0.8rem; padding: 8px; }
+
+  .hero-images { width: 180px; height: 180px; }
+  .hero-image { width: 180px; top: 30px; right: -5px; }
+  .hero-image.logo { width: 90px; right: 70px; top: -15px; }
+  .borboleta { width: 45px; top: -35px; right: 130px; }
+
+  aside.right { min-height: 160px; }
+
+  .process-images img { width: 110px; }
+  .process-text { 
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  li { font-size: 0.85rem; }
+
+  .product-card {
+    width: 100%;
+    padding: 12px;
+  }
+  .product-card .title { font-size: 1rem; }
+  .product-card .description { font-size: 0.8rem; }
+  .product-card img { height: 120px; }
+
+  .products-grid { gap: 10px; }
+  .pcard-gallery { height: 130px; }
+  .pcard { border-radius: var(--radius-sm); }
+  .pcard-info h4 { font-size: 0.85rem; }
+  .pcard-info p { font-size: 0.7rem; }
+
+  .card-btn { 
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  .category-anchors { 
+    top: 50px;
+    padding: 6px;
+    gap: 3px;
+    margin-bottom: 24px;
+  }
+  .anchor-btn { 
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+
+  .cat-block { scroll-margin-top: 100px; }
+  .cat-title { font-size: 1.1rem; }
+
+  /* About */
+  .about-content {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .mascotinha { 
+    width: 160px;
+    border-width: 6px;
+  }
+
+  .about-text h3 { font-size: 0.95rem; }
+  .about-text p { font-size: 0.85rem; }
+
+  .about p { font-size: 0.85rem; }
+
+  /* Testimonials */
+  .container { 
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+  .depo { width: 100%; max-width: 200px; }
+
+  /* Contato */
+  .container-btn { gap: 10px; }
+  .whatsapp-btn { 
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .contact p { font-size: 0.9rem; }
+
+  /* Footer: responsivo em tablet */
+  .footer-container { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .footer-brand { grid-column: 1 / -1; align-items: center; text-align: center; }
+
+  /* Footer */
+  footer.footer { padding: clamp(30px, 6vw, 60px) clamp(16px, 4vw, 40px); }
+  .footer-container { gap: clamp(20px, 4vw, 30px); }
+  .footer-bottom { padding-top: 20px; gap: 8px; }
+  .social-icons { gap: 10px; }
+}
+
+/* ── MUITO PEQUENO (320px) ── */
+@media (max-width: 320px) {
+  html { font-size: 13px; }
+
+  header { padding: 5px 8px; }
+  .logo-header { width: 28px; }
+
+  .btn { padding: 5px 10px; font-size: 0.75rem; }
+
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1rem; }
+
+  .hero { 
+    padding: 50px 10px 30px;
+    gap: 12px;
+  }
+
+  .hero-images { width: 150px; height: 150px; }
+  .hero-image { width: 150px; }
+
+  .products-grid { gap: 8px; }
+  .pcard-gallery { height: 120px; }
+
+  .category-anchors { top: 46px; gap: 2px; }
+  .anchor-btn { padding: 4px 8px; font-size: 0.65rem; }
+
+  .whatsapp-btn { 
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  /* Footer */
+  footer.footer { padding: 20px 10px; }
+  .footer-container { grid-template-columns: 1fr; gap: 20px; }
+  .footer-brand, .footer-links, .footer-contact, .footer-social {
+    align-items: center;
+    text-align: center;
+  }
+  .footer-links a::after { display: none; }
+  .footer-brand img { width: 40px; }
+  .social-icons a { width: 36px; height: 36px; font-size: 0.85rem; }
+}
+

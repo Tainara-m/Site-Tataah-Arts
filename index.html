@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tatááh Arts - Produtos personalizados com a sua identidade.">
+  <meta name="keywords" content="produtos personalizados, identidade visual, camisetas, canecas, planners">
+  <meta name="author" content="Tainara Martins">
+  <meta property="og:title" content="Tainara Martins — Transformando simplicidade em história e arte!" />
+  <meta property="og:description" content="Tatááh Arts - Produtos personalizados com a sua identidade." />
+  <meta property="og:image" content="assets/logomarca.png" />
+  <meta name="robots" content="index, follow">
+  <title>Tatááh Arts | by Tainara Martins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon//favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+<!-- =============================================
+     CABEÇALHO FIXO
+     Logo + nav + toggle de tema + CTA
+     ============================================= -->
+<header>
+  <img src="icon/borboletatááh.png" alt="Borboleta Tatááh" class="logo-header">
+ 
+  <!-- Botão hamburguer (aparece só no mobile) -->
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+ 
+  <!-- Menu de navegação — em mobile vira dropdown -->
+  <nav id="mainNav">
+    <a href="#hero">Início</a>
+    <a href="#process">Nosso Processo</a>
+    <a href="#digital-products">Produtos Digitais</a>
+    <a href="#physical-products">Produtos Físicos</a>
+    <a href="#testimonials">Depoimentos</a>
+    <a href="#contact">Contato</a>
+    <a href="#about">Sobre</a>
+  </nav>
+ 
+  <div class="btn-header">
+    <!-- Toggle tema claro/escuro com ícones SVG -->
+    <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Alternar tema">
+      <span class="toggle-track" aria-hidden="true">
+        <span class="toggle-slider"></span>
+        <span class="toggle-icon sun">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </span>
+        <span class="toggle-icon moon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </span>
+      </span>
+    </button>
+    <button class="btn">Entre em contato</button>
+  </div>
+</header>
+ 
+<main>
+ 
+<!-- =============================================
+     HERO — Banner principal
+     ============================================= -->
+<section class="hero" id="hero">
+    <aside class="left">
+    <p class="hero-detail">Feito a mão com amor!</p>
+    <h1>Tatááh Arts, <span>presentes</span> personalizados </h1>
+  <h2>Transformando simplicidade em história e arte!</h2>
+  <h3>Produtos personalizados com a sua identidade</h3>
+  <button class="btn hero-btn">Começar agora</button>
+</aside>
+<aside class="right">
+    <div class="hero-images">
+    <img src="assets/ChatGPT Image 21 de abr. de 2026, 14_55_49.png" alt="Imagem de uma caixinha presenteável em homenagem ao dias das Mães" class="hero-image">
+    <img src="assets/logomarca.png" alt="Logomarca Tatááh Arts" class="hero-image logo">
+    <img src="icon/borboletatááh.png" alt="Borboleta Tatááh" class="borboleta">
+  </aside>
+  </div>
+</section>
+ 
+<!-- =============================================
+     PROCESSO — Passo a passo da compra
+     ============================================= -->
+<section class="process" id="process">
+  <h2>Nosso Processo</h2>
+  <div class="process-content">
+    <div class="process-images">
+      <img src="assets/caixa-glitter azul (1).png" alt="Caixa glitter azul etapa 1" class="image n1">
+      <img src="assets/caixa-glitter azul (2).png" alt="Caixa glitter azul etapa 2" class="image n2">
+      <img src="assets/caixa-glitter azul (3).png" alt="Caixa glitter azul etapa 3" class="image n3">
+    </div>
+    <div class="process-text">
+      <ul>
+        <li>✨ Escolha seu produto;</li>
+        <li>📋 Envie os dados solicitados no prazo;</li>
+        <li>👀 Confira e aprove a prévia enviada;</li>
+        <li>🎨 Nós criamos sua peça única com cuidado e qualidade;</li>
+        <li>📦 Receba em casa e aproveite seu produto;</li>
+        <li>🌍 E compartilhe sua história com o mundo!</li>
+      </ul>
+    </div>
+  </div>
+</section>
+ 
+<!-- =============================================
+     PRODUTOS DIGITAIS
+     ============================================= -->
+<section class="digital-products" id="digital-products">
+  <h2 class="title-digital-products">Produtos Digitais</h2>
+  <p>Produtos digitais personalizados para diversos momentos e eventos.</p>
+  <div class="container">
+    <div class="product-card">
+      <p class="title">Template personalizado</p>
+      <p class="description">Um site único para presentear alguém especial em datas comemorativas.</p>
+      <img src="assets/screen.png" alt="Screenshot do template personalizado">
+      <button class="btn" disabled>Em breve</button>
+    </div>
+    <div class="product-card">
+      <p class="title">Convite digital personalizado</p>
+      <p class="description">Convite digital efetivo e em conta para convidar as pessoas.</p>
+      <img src="assets/convite-digital.jpg" alt="Exemplo de convite digital">
+      <button class="btn" disabled>Em breve</button>
+    </div>
+    <div class="product-card">
+      <p class="title">Vídeo personalizado</p>
+      <p class="description">Para convidar ou homenagear, um vídeo feito do seu jeito.</p>
+      <img src="assets/video-personalizado.png" alt="Ilustração do vídeo personalizado">
+      <button class="btn" disabled>Em breve</button>
+    </div>
+  </div>
+</section>
+ 
+<!-- =============================================
+     PRODUTOS FÍSICOS
+     Estrutura:
+     - Barra de âncoras fixa no topo da seção
+     - Scroll contínuo: cada categoria é uma subseção
+     - Cada produto é um card com mini-galeria interna
+       (setas ‹ › trocam a foto sem sair do card)
+     ============================================= -->
+<section class="physical-products" id="physical-products">
+  <h2>Produtos Físicos</h2>
+  <p class="section-subtitle">Role para explorar ou clique numa categoria</p>
+ 
+  <!-- BARRA DE ÂNCORAS — fica sticky no topo ao rolar -->
+  <nav class="category-anchors" aria-label="Ir para categoria">
+    <a href="#cat-caixas"    class="anchor-btn">Caixas</a>
+    <a href="#cat-canecas"   class="anchor-btn">Convites</a>
+    <a href="#cat-camisetas" class="anchor-btn">Álbuns</a>
+    <a href="#cat-planners"  class="anchor-btn">Corporativos</a>
+    <a href="#cat-quadros"   class="anchor-btn">Etiquetas</a>
+    <a href="#cat-almofadas" class="anchor-btn">Diversos</a>
+    <a href="#cat-kits"      class="anchor-btn">Calendários</a>
+  </nav>
+ 
+  <!-- ═══════════════════════════════════
+       ESTRUTURA DE CADA CARD COM GALERIA
+       .pcard                     → card completo
+         .pcard-gallery           → área da foto
+           .pcard-slides          → todas as "fotos" (só 1 visível por vez)
+             .pcard-slide         → uma foto/placeholder
+           .pgal-btn.prev         → seta esquerda
+           .pgal-btn.next         → seta direita
+           .pgal-dots             → bolinhas da galeria
+         .pcard-info              → título, descrição, preço, botão
+       ═══════════════════════════════════ -->
+ 
+  <!-- ═══ CAIXAS ═══ -->
+  <div class="cat-block" id="cat-caixas">
+    <h3 class="cat-title">Caixas</h3>
+    <div class="products-grid">
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#f2bece,#e8a0b8)"><img src="assets/caixa-urso (1).png" alt="Caixa personalizada com urso e aplicação em laço"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#e8a0b8,#d070a0)"><img src="assets/caixa-urso (2).png" alt="Caixa personalizada com urso e aplicação em laço"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#d070a0,#b85090)"><img src="assets/caixa-urso (3).png" alt="Caixa personalizada com urso e aplicação em laço"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#d070a0,#b85090)"><img src="assets/caixa-urso (4).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Urso</h4>
+          <p>Papel de 180 gramas, com aplicação de laço em papel 180 gramas e bombons Baton personalizados</p>
+          <span class="price-tag">Permite personalização</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#bddaf0,#8ec4e8)"><img src="assets/caixa-estrela (1).png" alt="Caixa personalizada em formato de estrela e aplicação de um cartão com mensagem no fundo interno"></div >
+            </div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#8ec4e8,#60a8d8)"><img src="assets/caixa-estrela (2).png" alt="Caixa personalizada em formato de estrela e aplicação de um cartão com mensagem no fundo interno">
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Estrela</h4>
+          <p>Caixa de papel 180 gramas com aplicação de cartão personalizado.</p>
+          <span class="price-tag">Cartão personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#b8e0c8,#7dc8a0)"><img src="assets/caixa-abraco (1).png" alt="Caixa personalizada com aplicação de cartão representando um abraço"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#7dc8a0,#50a878)"><img src="assets/caixa-abraco (2).png" alt="Caixa personalizada com aplicação de cartão representando um abraço"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#50a878,#308858)"><img src="assets/caixa-abraco (3).png" alt="Caixa personalizada com aplicação de cartão representando um abraço"></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Abraço</h4>
+          <p>Papel 180 gramas com aplicação de cartão personalizado.</p>
+          <span class="price-tag">Cartão personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#f2bece,#c8a0f0)"><img src="assets/caixa-bombons (1).png" alt="Caixa personalizada com aplicação de bombons representando palavras"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#c8a0f0,#9B7DC8)"><img src="assets/caixa-bombons (3).png" alt="Caixa personalizada com aplicação de bombons representando palavras"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#c8a0f0,#9B7DC8)"><img src="assets/caixa-bombons (2).png" alt="Caixa personalizada com aplicação de bombons representando palavras"></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Bombons</h4>
+          <p>Caixa em papel 180 gramas com aplicação de laço de fita de cetim e bombons representando palavras.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-diversao-colorida (1).jpg" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/caixa-diversao-colorida (2).jpg" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ff8830,#e86010)"><img src="assets/caixa-diversao-colorida (3).jpg" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Diversão Colorida</h4>
+          <p>Caixa em papel 180 gramas com um cofre de plástico com aplicação em papel adesivo de um desenho à escolha do cliente e local para lápis de cor pequenos.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-cerveja-petiscos (1).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/caixa-cerveja-petiscos (2).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Cerveja e Petiscos</h4>
+          <p>Caixa em papel 180 gramas com espaço para uma garrafa long neck e um pacote de petiscos.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-melhor-pai (1).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/caixa-melhor-pai (2).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/caixa-melhor-pai (3).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/caixa-happy-birthday (1).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/caixa-happy-birthday (2).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/caixa-happy-birthday (3).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa 4 doces</h4>
+          <p>Caixa em papel 180 gramas com espaço para 4 doces ou 4 bombons, com cartão no fundo.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-convite-batismo (1).png" alt=""></div>
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-convite-batismo (2).png" alt=""></div>
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-convite-batismo (3).png" alt=""></div>
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-convite-batismo (4).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Convite Batismo</h4>
+          <p>Caixa em papel 180 gramas com mensagem e personalização em 3D na parte interna e decoração com aplique em papel fotográfico e fita de gorgurão ou cetim na parte externa .</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-bis-personalizado (1).png" alt=""></div>
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-bis-personalizado (2).png" alt=""></div>
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-bis-personalizado (3).png" alt=""></div>
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/caixa-bis-personalizado (4).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Caixa Bis Personalizados</h4>
+          <p>Caixa em papel 180 gramas com chocolates Bis personalizados individualmente, a caixa possui personalização interna e externa e aplicação em laço de cetim.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+    </div><!-- /.products-grid -->
+  </div><!-- /#cat-caixas -->
+ 
+  <!-- ═══ CONVITES ═══ -->
+  <div class="cat-block" id="cat-canecas">
+    <h3 class="cat-title">Convites</h3>
+    <div class="products-grid">
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#bddaf0,#7ab8e0)"><img src="assets/convite-3d-apliques (1).png" alt="Convite 3D com aplicação de strass na parte externa"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#7ab8e0,#4898c8)"><img src="assets/convite-3d-apliques (2).png" alt="Convite 3D com aplicação de strass na parte externa"></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Convite 3D</h4>
+          <p>Convite 3D com aplicação de strass na parte externa.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#2D1F45,#9B7DC8)"><img src="assets/convite-renda (1).png" alt=""></div>
+            <div class="pcard-slide" style="background:linear-gradient(135deg,#9B7DC8,#c8a0f0)"><img src="assets/convite-renda (2).png" alt=""></div>
+            </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+          </div>
+        <div class="pcard-info">
+          <h4>Convite tamanho A5</h4>
+          <p>Convite em papel de 180 gramas (texturizado ou não) com aplique em renda, meia pérola ou strass e laço de fita de cetim.</p>
+          <span class="price-tag">Produto Personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#f2bece,#e080a8)"><img src="assets/convite-simples (1).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#e080a8,#c06090)"><img src="assets/convite-simples (2).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Convite Simples</h4>
+          <p>Convite em papel 180 gramas (texturizado ou não) com a parte escrita impressa em papel comum e aplique adesivo no lado externo (tamanho aproximado) 10x7 cm</p>
+          <span class="price-tag">Produto Personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#b8e0c8,#60c090)"><img src="assets/convite-3d-simples (1).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#888,#555)"><img src="assets/convite-3d-simples (2).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#555,#333)"><img src="assets/convite-3d-simples (3).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Convite 3d simples</h4>
+          <p>Convite todo em papel 180 gramas (texturizado ou não) com impressão em jato de tinta e aplique simples em 3D (tamanho aproximado 10x10 cm)</p>
+          <span class="price-tag">Produto Personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+    </div>
+  </div><!-- /#cat-canecas -->
+ 
+  <!-- ═══ ÁLBUM  ═══ -->
+  <div class="cat-block" id="cat-camisetas">
+    <h3 class="cat-title">Álbuns</h3>
+    <div class="products-grid">
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#e0e0e0,#c0c0c0)"><img src="assets/album-figurinhas (1).png" alt="Álbum de figurinhas totalmente personalizado e com fotos como figurinhas"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#c0c0c0,#a0a0a0)"><img src="assets/album-figurinhas (2).png" alt="Álbum de figurinhas totalmente personalizado e com fotos como figurinhas"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#c0c0c0,#a0a0a0)"><img src="assets/album-figurinhas (3).png" alt="Álbum de figurinhas totalmente personalizado e com fotos como figurinhas"></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Álbum de figurinhas com 15 figurinhas</h4>
+          <p>Envelope pardo tamanho A5, livro em papel 180 gramas, figurinhas em adesivo fotográfico impressos com jato de tinta.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#9B7DC8,#6a4f9e)"><img src="assets/album-figurinhas-20 (1).png" alt="Álbum de figurinhas com 20 figurinhas"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#f2bece,#9B7DC8)"><img src="assets/album-figurinhas-20 (2).png" alt="Álbum de figurinhas com 20 figurinhas"></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Álbum de figurinhas com 20 figurinhas</h4>
+          <p>Envelope pardo tamanho A5, livro em papel 180 gramas, figurinhas em adesivo fotográfico impressos com jato de tinta.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ff9040)"><img src="assets/album-figurinhas-30 (1).png" alt="Álbum de figurinhas com 30 figurinhas"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ff9040,#e07020)"><img src="assets/album-figurinhas-30 (2).png" alt="Álbum de figurinhas com 30 figurinhas"></div>
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ff9040)"><img src="assets/album-figurinhas-30 (3).png" alt="Álbum de figurinhas com 30 figurinhas"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ff9040,#e07020)"><img src="assets/album-figurinhas-30 (4).png" alt="Álbum de figurinhas com 30 figurinhas"></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Álbum de figurinhas com 30 figurinhas</h4>
+          <p>Envelope pardo tamanho A5, livro em papel 180 gramas, figurinhas em adesivo fotográfico impressos com jato de tinta.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#f2bece,#d060a0)"><img src="assets/album-fotos- 10x10 (1).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#d060a0,#b04080)"><img src="assets/album-fotos- 10x10 (2).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#d060a0,#b04080)"><img src="assets/album-fotos- 10x10 (3).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Álbum luxo 10x10 cm</h4>
+          <p>Álbum capa dura, com aplicações em gliter, strass ou meia pérola, renda e fitas. Interior em papel 180 gramas, acomoda até 20 fotos.</p>
+          <span class="price-tag">Produto Personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#b8e0c8,#40a870)"><img src="assets/album-fotos-aniversário-10x10 (1).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#40a870,#208050)"><img src="assets/album-fotos-aniversário-10x10 (2).png" alt=""></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#40a870,#208050)"><img src="assets/album-fotos-aniversário-10x10 (3).png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Álbum Simples 10x10 cm</h4>
+          <p>Álbum capa dura com detalhe em papel fotográfico adesivo. Interior em papel 180 gramas, acomoda até 20 fotos.</p>
+          <span class="price-tag">Produto Personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+    </div>
+  </div><!-- /#cat-camisetas -->
+ 
+  <!-- ═══ CORPORATIVOS ═══ -->
+  <div class="cat-block" id="cat-planners">
+    <h3 class="cat-title">Corporativos</h3>
+    <div class="products-grid">
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#f2bece,#c87090)"><img src="assets/balas-ano-novo.png" alt=""></div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Bala Personalizada</h4>
+          <p>Bala macia sortida, personalizada com papel fotográfico adesivo.</p>
+          <span class="price-tag">Produto Personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+    </div>
+  </div><!-- /#cat-corporativos -->
+ 
+  <!-- ═══ ETIQUETAS ═══ -->
+  <div class="cat-block" id="cat-quadros">
+    <h3 class="cat-title">Etiquetas Escolares</h3>
+    <div class="products-grid">
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)"><img src="assets/etiqueta-dino.png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Etiqueta Escolar Dinossauros</h4>
+          <p>Etiqueta em papel fotográfico e impressão jato de tinta.</p>
+          <span class="price-tag">Consultar outros temas</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)"><img src="assets/etiqueta-paw-patrol.png" alt=""></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Etiqueta Escolar Patrulha Canina</h4>
+          <p>Etiqueta em papel fotográfico e impressão jato de tinta.</p>
+          <span class="price-tag">Consultar outros temas</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+    </div>
+  </div><!-- /#cat-etiquetas -->
+ 
+  <!-- ═══ DIVERSOS ═══ -->
+  <div class="cat-block" id="cat-almofadas">
+    <h3 class="cat-title">Diversos</h3>
+    <div class="products-grid">
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#f2bece,#ffb8d0)">🛋️</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb8d0,#e090b0)">📸</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#e090b0,#c07090)">🎀</div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Topo de Bolo</h4>
+          <p>Impresso em papel fotográfico e com haste de acrílico</p>
+          <span class="price-tag">Consultar Temas</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#bddaf0,#90c8f0)">💙</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#90c8f0,#60a8d8)">🎨</div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Topo de Bolo 3D</h4>
+          <p>Impresso em papel fotográfico, com detalhes em 3D e com haste de acrílico.</p>
+          <span class="price-tag">Consultar Temas</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#b8e0c8,#80d0a8)">🐾</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#80d0a8,#50b888)">🐶</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#50b888,#30a068)">🐱</div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Álbum A4 Espiral</h4>
+          <p>Capa dura com personalização impressa em papel comum com jato de tinta, laminação à frio, espiral preta ou transparente e folhas internas em 180 gramas com cor de acordo com o tema</p>
+          <span class="price-tag">Consultar Tema</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#9B7DC8,#5a3a9e)">🎓</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#5a3a9e,#3a2070)">🏅</div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Chaveiro Personalizado</h4>
+          <p>Chaveiro em acrílico, personalizado com papel comum impresso à jato de tinta e selado com cola de silicone.</p>
+          <span class="price-tag">Consultar Tema</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#b8e0c8,#bddaf0)">👶</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#bddaf0,#f2bece)">🍼</div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#f2bece,#b8e0c8)">⭐</div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Bola de Natal Personalizada</h4>
+          <p>Bola em acrílico, personalizado com papel fotográfico impresso à jato de tinta e selado com cola de silicone.</p>
+          <span class="price-tag">Consultar Disponibilidade</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+    </div>
+  </div><!-- /#cat-almofadas -->
+ 
+  <!-- ═══ CALENDÁRIOS ═══ -->
+  <div class="cat-block" id="cat-kits">
+    <h3 class="cat-title">Calendários</h3>
+    <div class="products-grid">
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#f2bece,#9B7DC8)"><img src="assets/advento (1).png" alt="Calendário de Natal"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#9B7DC8,#6a4f9e)"><img src="assets/advento (2).png" alt="Calendário de Natal"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#6a4f9e,#4a3080)"><img src="assets/advento (3).png" alt="Calendário de Natal"></div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Calendário do Advento 24 dias</h4>
+          <p>Caixinhas em papel 180 gramas e detalhes em papel adesivo impressos com janto de tinta.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+ 
+      <div class="pcard">
+        <div class="pcard-gallery">
+          <div class="pcard-slides">
+            <div class="pcard-slide active" style="background:linear-gradient(135deg,#ffd6a0,#ffb060)"><img src="assets/advento-12 (1).png" alt="Calendário do Advento 12 dias"></div>
+            <div class="pcard-slide"        style="background:linear-gradient(135deg,#ffb060,#ff8830)"><img src="assets/advento-12 (2).png" alt="Calendário do Advento 12 dias">
+            </div>
+          </div>
+          <button class="pgal-btn prev" aria-label="Foto anterior">&#8249;</button>
+          <button class="pgal-btn next" aria-label="Próxima foto">&#8250;</button>
+          <div class="pgal-dots"></div>
+        </div>
+        <div class="pcard-info">
+          <h4>Calendário do Advento 12 dias</h4>
+          <p>Caixinhas em papel 180 gramas e detalhes em papel adesivo impressos com janto de tinta.</p>
+          <span class="price-tag">Produto personalizável</span>
+          <button class="btn card-btn">Personalizar</button>
+        </div>
+      </div>
+  
+    </div>
+  </div><!-- /#cat-kits -->
+ 
+</section><!-- /#physical-products -->
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials" id="testimonials">
+  <h2>Depoimentos</h2>
+<div class="container">
+  <img src="assets/depo.png" alt="" class="depo">
+</div></section>
+  
+<!-- CONTATO -->
+<section class="contact" id="contact">
+  <h2>Contato</h2>
+  <p>Para personalizar seus produtos:</p>
+  <div class="container-btn">
+  <a href="https://wa.me/5531999471019 " class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://www.instagram.com/tataah_arts/ " class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+  <a href="mailto:tataaharts@g mail.com/ " class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-regular fa-envelope"></i></a>
+  </div>
+  <p>Entre em contato para personalizar seus produtos.</p>
+  <div class="container-btn">
+  <a href="https://wa.me/5531971159128 " class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://github.com/Tainara-m" class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+  <a href="https://www.instagram.com/dfe.tainara_m/ " class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+  <a href=https://www.linkedin.com/in/tainaramartinscarvalho/ class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></i></a>
+  <a href="mailto:tainaramartins.dev@gmail.com " class="btn whatsapp-btn" target="_blank" rel="noopener"><i class="fa-regular fa-envelope"></i></a>
+  </div>
+</section>
+
+<!-- SOBRE NÓS -->
+<section class="about" id="about">
+  <h2>Sobre nós</h2>
+  <div class="about-content">
+    <img src="mascote/mascotinha-sem-fundo.png" alt="Mascotinha da Tatááh Arts" class="mascotinha">
+    <div class="about-text">
+      <h3>Como tudo começou</h3>
+      <p>A Tatááh Arts nasceu da paixão por criar peças únicas, feitas para guardar sentimentos. Muito antes de existir um nome ou identidade, tudo começou na adolescência, quando o artesanato surgiu como uma forma de transformar o simples — e até o que iria para o lixo — em algo bonito, capaz de decorar o quarto e também a vida.</p>
+      <h3>O que nos move</h3>
+      <p>Com o tempo, essa paixão cresceu e se transformou em um negócio. Hoje, a Tatááh Arts é um espaço onde arte e personalização se encontram para dar vida a produtos que contam histórias. Cada peça é criada com cuidado, atenção aos detalhes e muito carinho, refletindo a essência de quem vai receber.</p>
+    <h3>Nossa missão</h3>
+    <p>Participar de momentos tão especiais na vida dos clientes é uma honra — e também uma grande responsabilidade. Muitas vezes, o que produzimos representa a realização de um sonho, e é emocionante saber que algo tão simples quanto o papel pode tocar o coração das pessoas.</p>
+    <h3>Por que acreditamos nisso</h3>
+    <p>Acreditamos que um objeto personalizado tem o poder de criar conexões mais profundas e significativas. Em um mundo cada vez mais rápido e impessoal, o feito à mão traz um toque único, humano e cheio de significado. Obrigada por fazer parte dessa história e permitir que façamos parte da sua.</p>
+</div>   </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Marca -->
+    <div class="footer-brand">
+      <img src="icon/borboletatááh.png" alt="Logo Tatááh Arts">
+      <h3>Tatááh Arts</h3>
+      <p>Transformando simplicidade em história e arte.</p>
+    </div>
+
+    <!-- Contato -->
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <p><i class="fa-brands fa-whatsapp"></i> (31) 99947-1019</p>
+      <p><i class="fa-regular fa-envelope"></i> tataaharts@gmail.com</p>
+      <p><i class="fa-brands fa-instagram"></i> @tataah_arts</p>
+    </div>
+  </div>
+
+  <!-- Linha inferior -->
+  <div class="footer-bottom">
+    <p>© 2026 Tatááh Arts — Todos os direitos reservados</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
